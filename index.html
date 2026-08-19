@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายงานผลการปฏิบัติงานตามข้อตกลงในการพัฒนางาน (ว.PA) - Interactive eBook</title>
+  <meta name="description" content="eBook รายงานผลการประเมินข้อตกลงในการพัฒนางาน (ว.PA) สำหรับข้าราชการครูและบุคลากรทางการศึกษา ตามเกณฑ์ ก.ค.ศ. พร้อมระบบ 3D Flipbook และรายงานครบ 15 ตัวชี้วัด">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+</head>
+<body data-theme="royal-blue">
+  <div class="app-container">
+
+    <!-- ==================== TOP NAVIGATION BAR ==================== -->
+    <header class="top-nav">
+      <div class="brand-section">
+        <div class="brand-logo">PA</div>
+        <div>
+          <div class="brand-title">
+            <span>รายงาน ว.PA</span>
+            <span class="badge-tag">ก.ค.ศ. 2569</span>
+          </div>
+          <div class="brand-subtitle">ข้อตกลงในการพัฒนางาน (Performance Agreement)</div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-btn primary-action" id="btn-open-edit" title="แก้ไขข้อมูลครูและประเด็นท้าทาย">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          <span>แก้ไขข้อมูล (Live Editor)</span>
+        </button>
+
+        <button class="nav-btn" id="btn-theme-drawer" title="เลือกธีมสี">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <span>ธีมสี</span>
+        </button>
+
+        <button class="nav-btn" id="btn-print" title="พิมพ์เล่มรายงานหรือบันทึกเป็น PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>พิมพ์ / PDF</span>
+        </button>
+
+        <button class="nav-btn" id="btn-open-help" title="คู่มือการใช้งานและปุ่มลัด">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== MAIN VIEWPORT & FLIPBOOK ==================== -->
+    <main class="ebook-viewport" id="ebook-viewport">
+      <div class="flipbook-scene" id="flipbook-scene">
+        <div class="book-shadow"></div>
+        <div class="flipbook-wrapper" id="flipbook-wrapper">
+          <!-- Dynamic 12 Pages rendered by VPAFlipbook engine -->
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== BOTTOM TOOLBAR & CONTROLS ==================== -->
+    <footer class="bottom-toolbar">
+      <!-- Group 1: Navigation Drawers -->
+      <div class="tool-group">
+        <button class="tool-btn" id="btn-toc" title="สารบัญ (Table of Contents)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-thumbs" title="ภาพตัวอย่างหน้าทั้งหมด (Thumbnails)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-search" title="ค้นหาข้อความในเอกสาร (Search)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Group 2: Flipping Page Navigation -->
+      <div class="tool-group">
+        <button class="tool-btn" id="btn-prev" title="หน้าก่อนหน้า (ลูกศรซ้าย)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="page-navigator">
+          <input type="range" class="page-slider" id="page-slider" min="1" max="12" value="1">
+          <div class="page-display-text" id="page-display">หน้า 1 / 12</div>
+        </div>
+
+        <button class="tool-btn" id="btn-next" title="หน้าถัดไป (ลูกศรขวา / Space)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Group 3: View, Zoom & Audio Controls -->
+      <div class="tool-group">
+        <button class="tool-btn active" id="btn-sound" title="เปิด/ปิดเสียงเปิดหน้ากระดาษ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-view-mode" title="สลับโหมดหน้าเดี่ยว / สองหน้า">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-zoom-out" title="ย่อขนาด">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-zoom-reset" title="ขนาด 100%">
+          <span style="font-family:var(--font-tech); font-size:0.75rem; font-weight:700;" id="zoom-val">100%</span>
+        </button>
+
+        <button class="tool-btn" id="btn-zoom-in" title="ขยายขนาด">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="11" y1="8" x2="11" y2="14"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-autoplay" title="เล่นนำเสนออัตโนมัติ (Autoplay)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+
+        <button class="tool-btn" id="btn-fullscreen" title="แสดงผลเต็มจอ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <!-- ==================== SIDE DRAWERS ==================== -->
+    <!-- 1. TOC Drawer -->
+    <div class="drawer-panel" id="drawer-toc">
+      <div class="drawer-header">
+        <div class="drawer-title">📑 สารบัญเอกสาร</div>
+        <button class="drawer-close-btn">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div class="toc-list" style="margin-top:0;">
+          <div class="toc-item" onclick="window.flipbook.goToPage(1);">
+            <div class="toc-title-group"><div class="toc-num-badge">1</div><div class="toc-text">หน้าปกรายงาน ว.PA</div></div>
+            <div class="toc-page-dest">น. 1</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(2);">
+            <div class="toc-title-group"><div class="toc-num-badge">2</div><div class="toc-text">คำนำ และ สารบัญ</div></div>
+            <div class="toc-page-dest">น. 2</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(3);">
+            <div class="toc-title-group"><div class="toc-num-badge">3</div><div class="toc-text">ข้อมูลผู้จัดทำและภาระงานสอน</div></div>
+            <div class="toc-page-dest">น. 3</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(4);">
+            <div class="toc-title-group"><div class="toc-num-badge">4</div><div class="toc-text">ด้านที่ 1 การจัดการเรียนรู้ (1.1-1.4)</div></div>
+            <div class="toc-page-dest">น. 4</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(5);">
+            <div class="toc-title-group"><div class="toc-num-badge">5</div><div class="toc-text">ด้านที่ 1 การจัดการเรียนรู้ (1.5-1.8)</div></div>
+            <div class="toc-page-dest">น. 5</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(6);">
+            <div class="toc-title-group"><div class="toc-num-badge">6</div><div class="toc-text">ด้านที่ 2 ส่งเสริม & สนับสนุน (4 ตัวชี้วัด)</div></div>
+            <div class="toc-page-dest">น. 6</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(7);">
+            <div class="toc-title-group"><div class="toc-num-badge">7</div><div class="toc-text">ด้านที่ 3 พัฒนาตนเองและวิชาชีพ (PLC)</div></div>
+            <div class="toc-page-dest">น. 7</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(8);">
+            <div class="toc-title-group"><div class="toc-num-badge">8</div><div class="toc-text">ส่วนที่ 2 ข้อตกลงประเด็นท้าทาย</div></div>
+            <div class="toc-page-dest">น. 8</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(9);">
+            <div class="toc-title-group"><div class="toc-num-badge">9</div><div class="toc-text">ผลลัพธ์การพัฒนาและสถิติเปรียบเทียบ</div></div>
+            <div class="toc-page-dest">น. 9</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(10);">
+            <div class="toc-title-group"><div class="toc-num-badge">10</div><div class="toc-text">รางวัลและความภาคภูมิใจ</div></div>
+            <div class="toc-page-dest">น. 10</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(11);">
+            <div class="toc-title-group"><div class="toc-num-badge">11</div><div class="toc-text">ภาคผนวก: ร่องรอยหลักฐาน & QR Code</div></div>
+            <div class="toc-page-dest">น. 11</div>
+          </div>
+          <div class="toc-item" onclick="window.flipbook.goToPage(12);">
+            <div class="toc-title-group"><div class="toc-num-badge">12</div><div class="toc-text">ปกหลังและข้อมูลติดต่อ</div></div>
+            <div class="toc-page-dest">น. 12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Thumbnails Drawer -->
+    <div class="drawer-panel" id="drawer-thumbs">
+      <div class="drawer-header">
+        <div class="drawer-title">🖼️ ภาพตัวอย่างทุกหน้า</div>
+        <button class="drawer-close-btn">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div class="thumbnails-grid" id="thumbnails-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Search Drawer -->
+    <div class="drawer-panel" id="drawer-search">
+      <div class="drawer-header">
+        <div class="drawer-title">🔍 ค้นหาในเล่มรายงาน</div>
+        <button class="drawer-close-btn">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div class="search-input-wrap">
+          <input type="text" class="search-input" id="search-input" placeholder="พิมพ์คำค้นหา เช่น Active Learning, PLC, วิจัย...">
+        </div>
+        <div class="search-results-list" id="search-results">
+          <div style="color:#64748b; font-size:0.8rem; text-align:center; padding:20px;">พิมพ์ข้อความเพื่อค้นหาในเอกสาร</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Theme Drawer -->
+    <div class="drawer-panel" id="drawer-theme">
+      <div class="drawer-header">
+        <div class="drawer-title">🎨 เลือกธีมสีเอกสาร</div>
+        <button class="drawer-close-btn">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <button class="nav-btn theme-opt-btn active" data-theme="royal-blue" style="justify-content:flex-start; padding:12px;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#0f2c59; border:2px solid #d4af37; display:inline-block;"></span>
+            <div style="text-align:left;">
+              <strong style="display:block; color:#ffffff;">Royal Blue & Gold</strong>
+              <small style="color:#94a3b8;">น้ำเงินเกียรติยศ-ทอง มาตรฐาน ก.ค.ศ.</small>
+            </div>
+          </button>
+
+          <button class="nav-btn theme-opt-btn" data-theme="emerald" style="justify-content:flex-start; padding:12px;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#064e3b; border:2px solid #eab308; display:inline-block;"></span>
+            <div style="text-align:left;">
+              <strong style="display:block; color:#ffffff;">Emerald Green & Gold</strong>
+              <small style="color:#94a3b8;">เขียวมรกต-ทอง ทรงคุณค่าสง่างาม</small>
+            </div>
+          </button>
+
+          <button class="nav-btn theme-opt-btn" data-theme="burgundy" style="justify-content:flex-start; padding:12px;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#4c0519; border:2px solid #fbbf24; display:inline-block;"></span>
+            <div style="text-align:left;">
+              <strong style="display:block; color:#ffffff;">Burgundy & Rose Gold</strong>
+              <small style="color:#94a3b8;">แดงเบอร์กันดี-ทองชมพู เรียบหรู</small>
+            </div>
+          </button>
+
+          <button class="nav-btn theme-opt-btn" data-theme="sapphire" style="justify-content:flex-start; padding:12px;">
+            <span style="width:20px; height:20px; border-radius:50%; background:#0f172a; border:2px solid #38bdf8; display:inline-block;"></span>
+            <div style="text-align:left;">
+              <strong style="display:block; color:#ffffff;">Deep Sapphire & Platinum</strong>
+              <small style="color:#94a3b8;">กรมท่านอร์ดิก ทันสมัย โมเดิร์น</small>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+    <!-- 1. Edit Profile & Content Modal -->
+    <div class="modal-overlay" id="modal-edit-profile">
+      <div class="modal-dialog">
+        <div class="modal-head">
+          <h3>✏️ ปรับแต่งข้อมูลรายงาน ว.PA (Live Customizer)</h3>
+          <button class="drawer-close-btn" id="btn-close-edit">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-edit-profile">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="inp-teacherName">ชื่อ-สกุล ครูผู้รับการประเมิน</label>
+                <input type="text" class="form-control" id="inp-teacherName" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-position">ตำแหน่ง</label>
+                <input type="text" class="form-control" id="inp-position" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="inp-standing">วิทยฐานะ</label>
+                <input type="text" class="form-control" id="inp-standing" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-qualification">วุฒิการศึกษา</label>
+                <input type="text" class="form-control" id="inp-qualification" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="inp-school">สถานศึกษา / โรงเรียน</label>
+                <input type="text" class="form-control" id="inp-school" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inp-affiliation">สังกัด / สพม. / สพป.</label>
+                <input type="text" class="form-control" id="inp-affiliation" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inp-subjectGroup">กลุ่มสาระการเรียนรู้</label>
+              <input type="text" class="form-control" id="inp-subjectGroup" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inp-avatarUrl">ลิงก์รูปถ่ายติดบัตรครู (URL หรือ Base64)</label>
+              <input type="text" class="form-control" id="inp-avatarUrl">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inp-challengeTitle">หัวข้อประเด็นท้าทาย (Challenge Issue)</label>
+              <textarea class="form-control" id="inp-challengeTitle" rows="3" required></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+              <button type="button" class="nav-btn" id="btn-reset-data" style="color:#f87171; border-color:rgba(239,68,68,0.3);">
+                🔄 คืนค่าข้อมูลเริ่มต้น
+              </button>
+              <div style="display:flex; gap:10px;">
+                <button type="button" class="nav-btn" id="btn-cancel-edit">ยกเลิก</button>
+                <button type="submit" class="nav-btn primary-action">💾 บันทึกการเปลี่ยนแปลง</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Help Modal -->
+    <div class="modal-overlay" id="modal-help">
+      <div class="modal-dialog" style="max-width:500px;">
+        <div class="modal-head">
+          <h3>💡 คู่มือการใช้งาน eBook</h3>
+          <button class="drawer-close-btn" id="btn-close-help">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="line-height:1.7; font-size:0.88rem; color:#cbd5e1;">
+            <p><strong>📖 วิธีการเปิดอ่านหน้าถัดไป / ย้อนกลับ:</strong></p>
+            <ul style="margin-left:20px; margin-bottom:15px;">
+              <li>คลิกที่มุมกระดาษด้านล่าง (Corner Hints)</li>
+              <li>กดปุ่มลูกศร <strong>&larr; ซ้าย / &rarr; ขวา</strong> บนแป้นพิมพ์ หรือ Spacebar</li>
+              <li>ใช้ปุ่มลูกศรบนแถบเมนูด้านล่าง หรือเลื่อนแถบ Slider</li>
+              <li>ปัดหน้าจอซ้าย-ขวา บนสมาร์ตโฟนหรือแท็บเล็ต</li>
+            </ul>
+
+            <p><strong>🎯 ฟังก์ชันพิเศษ:</strong></p>
+            <ul style="margin-left:20px; margin-bottom:15px;">
+              <li><strong>Live Editor:</strong> แก้ไขชื่อครู โรงเรียน และประเด็นท้าทายได้ทันที</li>
+              <li><strong>Autoplay:</strong> โหมดนำเสนออัตโนมัติสำหรับฉายขึ้นจอประชุมประเมิน</li>
+              <li><strong>พิมพ์ / PDF:</strong> สั่งพิมพ์เล่มรายงานเข้าแฟ้ม A4 หรือกดบันทึกเป็น PDF ได้ทันที</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/sound.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/flipbook.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
